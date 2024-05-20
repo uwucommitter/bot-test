@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "simple-git": "^3.24.0",
+    "uwuifier": "^4.0.5"
+  }
+}
