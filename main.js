@@ -1,17 +1,24 @@
 const simpleGit = require('simple-git');
-const Uwuifier = require('uwuifier');
-const uwuifier = new Uwuifier();
-
 const git = simpleGit();
 
 const commitMessage = process.argv.slice(2).join(' ');
-const uwuifiedMessage = uwuifier.uwuifySentence(commitMessage);
+
+function uwuify(text) {
+  return text
+    .replace(/r/g, 'w')
+    .replace(/l/g, 'w')
+    .replace(/n([aeiou])/g, 'ny$1')
+    .replace(/N([aeiou])/g, 'Ny$1')
+    .replace(/ove/g, 'uv');
+}
+
+const uwuifiedMessage = uwuify(commitMessage);
 
 async function commitAndPush() {
   try {
     await git.add('.');
     await git.commit(uwuifiedMessage, {
-      '--author': '"uwubot <uwucommitter@protonmail.com>"'
+      '--author': '"uwubot <uwucommiter@protonmail.com>"'
     });
     await git.push();
     console.log(`Commit successful: ${uwuifiedMessage}`);
