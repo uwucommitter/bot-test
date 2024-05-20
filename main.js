@@ -11,14 +11,14 @@ function uwuify(text) {
     .replace(/N([aeiou])/g, 'Ny$1')
     .replace(/ove/g, 'uv');
 }
-
+//a
 const uwuifiedMessage = uwuify(commitMessage);
 
 async function commitAndPush() {
   try {
     await git.add('.');
     await git.commit(uwuifiedMessage, {
-      '--author': '"uwubot <uwucommiter@protonmail.com>"'
+      '--author': '"uwucommiter" <uwucommiter@uwu.com>',
     });
     await git.push();
     console.log(`Commit successful: ${uwuifiedMessage}`);
